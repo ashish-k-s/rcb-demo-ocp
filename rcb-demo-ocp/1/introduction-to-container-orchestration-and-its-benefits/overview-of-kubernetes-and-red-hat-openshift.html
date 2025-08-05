@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Overview of Kubernetes and Red Hat OpenShift :: OpenShift Basics</title>
+    <link rel="prev" href="introduction-to-container-orchestration-and-its-benefits.html">
+    <link rel="next" href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs/hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs/deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a></li>
+    <li><a href="overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Overview of Kubernetes and Red Hat OpenShift</h1>
+<div class="sect2">
+<h3 id="_overview_of_kubernetes_and_red_hat_openshift"><a class="anchor" href="#_overview_of_kubernetes_and_red_hat_openshift"></a>Overview of Kubernetes and Red Hat OpenShift</h3>
+<div class="paragraph">
+<p>Kubernetes (k8s) is an open-source container orchestration platform primarily used for automating application deployment, scaling, and management. It groups containers into logical units for easy management and discovery. Kubernetes ensures that the right pods run on the right nodes, optimizes resource usage, and provides self-healing capabilities to maintain the desired state of applications.</p>
+</div>
+<div class="paragraph">
+<p>Red Hat OpenShift is an enterprise-grade container platform built around Kubernetes, providing additional features tailored for enterprise users. It extends Kubernetes with a robust set of developer services, automation, and security features. Built upon the foundation of Docker containers, OpenShift simplifies the deployment, scaling, and management of applications using container technologies.</p>
+</div>
+<div class="paragraph">
+<p>Here’s a comparison between Kubernetes and Red Hat OpenShift:</p>
+</div>
+<div class="sect3">
+<h4 id="_key_differences"><a class="anchor" href="#_key_differences"></a>Key Differences</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Ease of Use:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Kubernetes</strong>: Offers a bare-minimum platform for running containers. It requires a good understanding of containerization and orchestration concepts.</p>
+</li>
+<li>
+<p><strong>OpenShift</strong>: Provides an easy-to-use, integrated environment with built-in CI/CD pipelines, source control management integration, and a web-based console for simpler administration.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Built-in Services:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Kubernetes</strong>: Primarily focuses on container orchestration and does not include built-in services like monitoring, logging, or security.</p>
+</li>
+<li>
+<p><strong>OpenShift</strong>: Includes a suite of integrated enterprise-grade services for security, networking, storage management, and more, making it an all-inclusive platform for deploying applications at scale.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Custom Resource Definitions (CRDs):</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Kubernetes</strong>: Supports custom resources through CRDs, allowing users to extend Kubernetes functionality.</p>
+</li>
+<li>
+<p><strong>OpenShift</strong>: Leverages CRDs extensively, offering a wide array of built-in extensions and operators tailored for various use cases.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Web Console:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Kubernetes</strong>: Requires external tools or third-party solutions (like Rancher, kubemanager) to manage the cluster via a web console.</p>
+</li>
+<li>
+<p><strong>OpenShift</strong>: Comes with an integrated web console (OpenShift Web Console) for managing clusters, applications, and infrastructure components effortlessly.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Operator Framework:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Kubernetes</strong>: Supports Operators but does not have an extensive built-in Operator Hub.</p>
+</li>
+<li>
+<p><strong>OpenShift</strong>: Built on top of Kubernetes Operators, providing a robust Operator Hub with pre-built operators for various application stacks, simplifying deployment and management.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_benefits_of_using_red_hat_openshift_over_kubernetes"><a class="anchor" href="#_benefits_of_using_red_hat_openshift_over_kubernetes"></a>Benefits of Using Red Hat OpenShift over Kubernetes</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Enhanced Developer Productivity:</strong> OpenShift comes with integrated developer tools and services (like Jenkins, Git, Registry) making it easier to develop, test, and deploy applications without switching between multiple interfaces.</p>
+</li>
+<li>
+<p><strong>Simplified Management:</strong> With OpenShift&#8217;s built-in management capabilities, administrators can manage resources more efficiently, enforce security policies, and streamline updates.</p>
+</li>
+<li>
+<p><strong>Enterprise-Grade Security and Compliance:</strong> OpenShift includes features for role-based access control (RBAC), image signing, network segmentation, and auditing to meet stringent enterprise security standards.</p>
+</li>
+<li>
+<p><strong>Scalability and Resilience:</strong> Leveraging Kubernetes' strengths in container orchestration, OpenShift ensures high availability and seamless scalability, allowing organizations to efficiently manage workloads across multiple environments (development, testing, production).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In conclusion, while Kubernetes provides the core container orchestration capabilities, Red Hat OpenShift builds upon this foundation to deliver a comprehensive enterprise-ready platform. Organizations looking for an out-of-the-box solution with advanced developer and administrator tools, enhanced security features, and streamlined management will find OpenShift a compelling choice over vanilla Kubernetes.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a></span>
+  <span class="next"><a href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

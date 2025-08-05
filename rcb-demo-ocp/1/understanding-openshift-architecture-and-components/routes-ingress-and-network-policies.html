@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Routes, Ingress, and Network Policies :: OpenShift Basics</title>
+    <link rel="prev" href="nodes-pods-services-and-deployments.html">
+    <link rel="next" href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs/hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs/deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a></li>
+    <li><a href="routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Routes, Ingress, and Network Policies</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Routes, Ingress, and Network Policies</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In Red Hat OpenShift, managing network traffic is crucial for securing and optimizing application communication. This section will cover Routes, Ingress, and Network Policies—key components for controlling access to services in your OpenShift environment.</p>
+</div>
+</div>
+</div>
+<h1 id="_routes" class="sect0"><a class="anchor" href="#_routes"></a>Routes</h1>
+<div class="paragraph">
+<p>OpenShift Routes provide external access to a service within the cluster using a host name and a port. They are an essential part of OpenShift&#8217;s internal load balancing mechanism, enabling HTTP-based application access through a single entry point (the Route). Routes ensure that traffic is correctly routed to the appropriate service instances and handle SSL termination if needed.</p>
+</div>
+<div class="paragraph">
+<p><strong>Key features of Routes:</strong>
+1. <strong>Host and Port:</strong> Define the external hostname and port number for accessing the service.
+2. <strong>Path-based routing:</strong> Allows you to direct traffic based on URL paths.
+3. <strong>TLS termination:</strong> Enables secure HTTPS connections by terminating SSL at the Route.
+4. <strong>Cookie-based session affinity:</strong> Maintains user sessions across requests.</p>
+</div>
+<h1 id="_ingress" class="sect0"><a class="anchor" href="#_ingress"></a>Ingress</h1>
+<div class="paragraph">
+<p>An Ingress in OpenShift is an API object that manages external access to the services within a cluster, typically using a load balancer. Unlike Routes, which are limited to HTTP and HTTPS traffic, Ingress can handle more complex protocols like TCP and UDP. This flexibility makes Ingress suitable for scenarios requiring advanced routing and balancing capabilities.</p>
+</div>
+<div class="paragraph">
+<p><strong>Key features of Ingress:</strong>
+1. <strong>Protocol support:</strong> Handles various protocols including HTTP, HTTPS, TCP, and UDP.
+2. <strong>Advanced routing rules:</strong> Allows customization using annotations to define complex traffic management policies.
+3. <strong>Integration with external load balancers:</strong> Enables the use of third-party load balancers for handling ingress traffic.</p>
+</div>
+<h1 id="_network_policies" class="sect0"><a class="anchor" href="#_network_policies"></a>Network Policies</h1>
+<div class="paragraph">
+<p>Network Policies in OpenShift are a powerful way to control the communication between Pods, providing fine-grained network security at the namespace level. They help enforce security by allowing or denying traffic based on various criteria such as source and destination Pods, namespaces, or ports. This ensures that your application’s inter-Pod communication remains isolated and secure.</p>
+</div>
+<div class="paragraph">
+<p><strong>Key features of Network Policies:</strong>
+1. <strong>Source and Destination selection:</strong> Define rules to control traffic based on Pod labels, namespaces, and IP ranges.
+2. <strong>Protocol and Port restrictions:</strong> Limit access by specifying allowed protocols (TCP, UDP) and ports.
+3. <strong>Namespace isolation:</strong> Enforce security boundaries between different application namespaces.</p>
+</div>
+<h1 id="_hands_on_lab_implementing_routes_ingress_and_network_policies" class="sect0"><a class="anchor" href="#_hands_on_lab_implementing_routes_ingress_and_network_policies"></a>Hands-on Lab: Implementing Routes, Ingress, and Network Policies</h1>
+<div class="paragraph">
+<p>In this hands-on lab, you will learn to create and manage Routes, Ingress, and implement Network Policies in an OpenShift environment. The following steps provide a high-level overview of the lab activities:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Creating a Project and User:</strong> Establish a dedicated project for your application and create a user with appropriate permissions.</p>
+</li>
+<li>
+<p><strong>Deploying an Application:</strong> Deploy a sample application (e.g., a simple web server) using container images or Source-to-Image (S2I).</p>
+</li>
+<li>
+<p><strong>Creating a Route:</strong> Set up a Route to expose the deployed application externally, allowing HTTP and HTTPS traffic.</p>
+</li>
+<li>
+<p><strong>Setting Up Ingress:</strong> Create an Ingress object for handling advanced routing requirements, such as load balancing different services.</p>
+</li>
+<li>
+<p><strong>Implementing Network Policies:</strong> Define and apply Network Policies to control communication between Pods, ensuring secure inter-Pod interactions.</p>
+</li>
+<li>
+<p><strong>Testing and Validation:</strong> Validate the setup by accessing your application via the Route and verifying that traffic flows as expected, with proper isolation and security enforced by Network Policies.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This hands-on lab will provide you with practical experience in configuring and managing Routes, Ingress, and Network Policies in Red Hat OpenShift, enabling you to effectively control network traffic and enhance your application&#8217;s security posture.</p>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a></span>
+  <span class="next"><a href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">Deploying applications on OpenShift</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

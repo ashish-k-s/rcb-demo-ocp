@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nodes, Pods, Services, and Deployments :: OpenShift Basics</title>
+    <link rel="prev" href="understanding-openshift-architecture-and-components.html">
+    <link rel="next" href="routes-ingress-and-network-policies.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs/hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs/deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a></li>
+    <li><a href="nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Nodes, Pods, Services, and Deployments</h1>
+<h1 id="_nodes_pods_services_and_deployments" class="sect0"><a class="anchor" href="#_nodes_pods_services_and_deployments"></a>Nodes, Pods, Services, and Deployments</h1>
+<div class="paragraph">
+<p>In Red Hat OpenShift, container orchestration is achieved through various components working together. This section focuses on four fundamental elements: <strong>Nodes</strong>, <strong>Pods</strong>, <strong>Services</strong>, and <strong>Deployments</strong>. Understanding these components is crucial for managing and scaling applications effectively within an OpenShift environment.</p>
+</div>
+<div class="sect1">
+<h2 id="_nodes"><a class="anchor" href="#_nodes"></a>Nodes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenShift nodes are worker machines in the cluster that run application containers. Each node contains the necessary services to ensure that containers can run efficiently:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Container runtime</strong>: Executes and manages containers, e.g., CRI-O or Docker.</p>
+</li>
+<li>
+<p><strong>Hibernate service</strong>: Manages pod lifecycles and ensures resource availability.</p>
+</li>
+<li>
+<p><strong>Kubelet</strong>: An agent that communicates with the control plane to ensure desired state for pods and containers.</p>
+</li>
+<li>
+<p><strong>Container Network Interface (CNI) plugin</strong>: Facilitates network communication between containers on the node.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Nodes can be added or removed dynamically, allowing the OpenShift cluster to scale according to resource demands.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pods"><a class="anchor" href="#_pods"></a>Pods</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <strong>Pod</strong> is the smallest deployable unit in OpenShift, representing a single instance of a running process. Each Pod contains one or more containers sharing storage and network resources, and it runs on a Node. Pods are ephemeral, meaning they can be created, destroyed, and rescheduled by the Kubernetes/OpenShift scheduler.</p>
+</div>
+<div class="paragraph">
+<p>Key characteristics of Pods:
+- Containers within a Pod share the same networking namespace and can communicate using localhost.
+- Pods provide a way to group containers that need to work together, ensuring co-location and shared resources.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_services"><a class="anchor" href="#_services"></a>Services</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Services</strong> in OpenShift abstract the underlying Pods, providing stable endpoints for accessing applications even if Pods are rescheduled or replaced. This abstraction enables:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Service discovery</strong>: Applications can locate other services within the cluster using their defined service names rather than needing to know specific Pod IP addresses.</p>
+</li>
+<li>
+<p><strong>Load balancing</strong>: OpenShift&#8217;s built-in load balancing distributes traffic among multiple Pod replicas for high availability and scalability.</p>
+</li>
+<li>
+<p><strong>Network policies</strong>: Services allow defining network access rules, controlling communication between Pods and external networks.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deployments"><a class="anchor" href="#_deployments"></a>Deployments</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Deployments</strong> manage the lifecycle of applications in OpenShift, ensuring desired numbers of Pod replicas are always running. Key features include:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Declarative updates</strong>: Define the desired state (number of replicas, container images, etc.), and OpenShift ensures the application runs according to this specification.</p>
+</li>
+<li>
+<p><strong>Rollouts and rollbacks</strong>: Gradual or canary deployments allow updating applications incrementally, with options for rolling back in case of issues.</p>
+</li>
+<li>
+<p><strong>Self-healing</strong>: Automatically restarts failed containers, replaces and reschedules Pods when Nodes die, and manages updates to maintain the desired state.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Understanding Nodes, Pods, Services, and Deployments is vital for effectively deploying, managing, and scaling applications in OpenShift. These components work together seamlessly, providing a robust platform for container orchestration.</p>
+</div>
+<div class="sect2">
+<h3 id="_hands_on_lab_creating_a_simple_deployment"><a class="anchor" href="#_hands_on_lab_creating_a_simple_deployment"></a>Hands-on Lab: Creating a Simple Deployment</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Create a Project</strong>: Use the OpenShift web console or <code>oc</code> CLI to create a new project (namespace) for your application.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc new-project myapp-project
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Build a Container Image</strong>: Create a Docker file in your application directory and build an image locally or use a pre-built image from a registry like Docker Hub.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```Dockerfile
+FROM centos:7
+COPY . /app
+WORKDIR /app
+CMD ["python", "app.py"]
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Build the image:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+docker build -t myregistry/myapp:v1 .
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Push to Image Registry</strong>: Push the built container image to a registry accessible to your OpenShift cluster.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+docker tag myregistry/myapp:v1 &lt;your-registry&gt;/myapp:v1
+docker push &lt;your-registry&gt;/myapp:v1
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Create a Deployment</strong>: Use <code>oc</code> CLI or the web console to define and create a Deployment for your application, specifying container image, replica count, and service details.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc new-deployment --image=&lt;your-registry&gt;/myapp:v1 --name=myapp-deployment
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Expose the Application</strong>: Create a Service to expose your application to the cluster or external networks.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc expose deployment myapp-deployment --type=Route
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Access Your Application</strong>: Retrieve the route URL and access your running application.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc get routes
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>By completing this hands-on lab, you&#8217;ll gain practical experience in creating a simple OpenShift Deployment, building container images, and exposing applications through Services, reinforcing your understanding of Nodes, Pods, Services, and Deployments.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a></span>
+  <span class="next"><a href="routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

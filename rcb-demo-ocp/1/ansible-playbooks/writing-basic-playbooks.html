@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Writing basic playbooks :: OpenShift Basics</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs/hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs/deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="writing-basic-playbooks.html">Writing basic playbooks</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Writing basic playbooks</h1>
+<div class="sect2">
+<h3 id="_writing_basic_playbooks"><a class="anchor" href="#_writing_basic_playbooks"></a>Writing Basic Playbooks</h3>
+<div class="paragraph">
+<p>Ansible playbooks are fundamental to automating tasks and managing configurations using Ansible. They are written in the YAML format, which is human-readable and easy to understand. A playbook is a collection of plays, where each play defines a set of tasks to be executed on selected managed nodes.</p>
+</div>
+<div class="sect3">
+<h4 id="_playbook_structure"><a class="anchor" href="#_playbook_structure"></a>Playbook Structure</h4>
+<div class="paragraph">
+<p>A basic Ansible playbook structure looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+- hosts: web_servers
+  become: yes
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Start Apache service
+      service:
+        name: apache2
+        state: started</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Explanation:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Host declaration (<code>hosts</code>):</strong> Defines the managed nodes on which the playbook tasks will be executed. In this example, it targets all hosts in the <code>web_servers</code> group.</p>
+</li>
+<li>
+<p><strong>Become (Privileged Execution) (<code>become</code>):</strong> Enables privileged execution using <code>sudo</code>, allowing tasks to perform administrative actions. Here, <code>become: yes</code> indicates that tasks should be run as the root user or another specified user with appropriate privileges.</p>
+</li>
+<li>
+<p><strong>Tasks block (<code>tasks</code>):</strong> Contains a list of tasks to execute on the managed nodes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>name</code>:</strong> A descriptive name for the task.</p>
+</li>
+<li>
+<p><strong><code>apt</code>: Task module to manage packages using the <code>apt</code> package manager.</strong></p>
+</li>
+<li>
+<p><code>name: apache2</code> specifies the package to manage (in this case, Apache2).</p>
+</li>
+<li>
+<p><code>state: present</code> ensures that the package is installed and up-to-date.</p>
+</li>
+<li>
+<p><strong><code>service</code>: Task module to manage and control system services.</strong></p>
+</li>
+<li>
+<p><code>name: apache2</code> specifies the service name.</p>
+</li>
+<li>
+<p><code>state: started</code> ensures that the service is running after installation.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_playbook_modules"><a class="anchor" href="#_playbook_modules"></a>Playbook Modules</h4>
+<div class="paragraph">
+<p>Ansible provides a wide range of modules for managing various aspects of your systems, such as package management, file manipulation, user and group management, network configuration, and more. To list available modules relevant to your playbook, use the <code>ansible-doc</code> command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ansible-doc -ml &lt;module_name&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For instance, to see documentation for the <code>apt</code> module:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ansible-doc -ml apt</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_hands_on_activity_writing_a_basic_playbook"><a class="anchor" href="#_hands_on_activity_writing_a_basic_playbook"></a>Hands-on Activity: Writing a Basic Playbook</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Create a new playbook file</strong> named <code>basic_playbook.yml</code> and paste the following content:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```yaml
+---
+- hosts: web_servers
+  become: yes
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>name: Start Apache service
+      service:
+        name: apache2
+        state: started
+<code>`</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Create a group</strong> in your Ansible inventory file (usually <code>inventory/group_vars/web_servers</code> or <code>hosts</code>) to hold web servers:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```ini
+[web_servers]
+server1 ansible_host=192.168.1.100
+server2 ansible_host=192.168.1.101
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Run the playbook</strong> using the following command:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ansible-playbook -i inventory/group_vars/web_servers basic_playbook.yml
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Verify</strong> that Apache is installed and running on both servers by checking their status or visiting them in a web browser (ensure necessary firewall rules are in place for access).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This hands-on activity demonstrates the process of creating, configuring, and executing a simple Ansible playbook to automate the installation and configuration of the Apache web server on managed nodes.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

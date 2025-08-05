@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Running basic playbooks for system configuration :: OpenShift Basics</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs/hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs/deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="running-basic-playbooks-for-system-configuration.html">Running basic playbooks for system configuration</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Running basic playbooks for system configuration</h1>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Running Basic Playbooks for System Configuration</strong></p>
+<div class="literalblock">
+<div class="content">
+<pre>In this section, we will explore how to run basic Ansible playbooks for system configuration tasks. This hands-on activity will guide you through setting up a simple environment and executing playbooks to manage files and services on managed nodes.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>### Prerequisites</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Before proceeding with this lab activity, ensure that you have the following prerequisites in place:</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A control node (your local machine or a dedicated server) with Ansible installed.</p>
+</li>
+<li>
+<p>Managed nodes (target systems) accessible via SSH and added to your Ansible control node&#8217;s inventory file.</p>
+</li>
+<li>
+<p>Basic understanding of Ansible playbooks, including variables, templates, and roles. For more information on these topics, refer to the "Ansible Playbooks" section in this training content.</p>
+<div class="literalblock">
+<div class="content">
+<pre>### Hands-on Activity: Running Basic Playbooks for System Configuration</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>#### Step 1: Prepare Your Playbook</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Create a new playbook file named `basic_config.yml` with the following content:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```yaml
+---
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: Ensure Apache is installed
+      apt:
+        name: apache2
+        state: present</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>name: Copy custom index file
+      copy:
+        src: /path/to/local/index.html
+        dest: /var/www/html/index.html
+<code>`</code></p>
+<div class="literalblock">
+<div class="content">
+<pre>In this playbook, we define a host group named `webservers` (make sure to update your inventory file with appropriate managed nodes under this group). The playbook contains two tasks:</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Installs the Apache web server package on managed nodes using the <code>apt</code> module.</p>
+</li>
+<li>
+<p>Copies a custom HTML file from your local machine to the <code>/var/www/html/</code> directory on each managed node.</p>
+<div class="literalblock">
+<div class="content">
+<pre>#### Step 2: Run the Playbook</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Execute the playbook on your managed nodes by running the following command in your control node's terminal:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ansible-playbook -i inventory_file basic_config.yml
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `inventory_file` with the path to your Ansible inventory file, which should list your managed nodes under the `webservers` group.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>#### Step 3: Verify Results</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>After running the playbook, verify that Apache is installed and your custom index file is copied to the appropriate location on each managed node. You can SSH into any of the managed nodes and check the status of Apache or view the content of the `/var/www/html/index.html` file.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+sudo systemctl status apache2
+cat /var/www/html/index.html
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By completing this hands-on activity, you have successfully run a basic Ansible playbook to perform system configuration tasks on managed nodes. This demonstrates the power of Ansible in automating repetitive tasks and ensuring consistent configurations across multiple systems. Further explore Ansible&#8217;s capabilities by experimenting with additional modules, variables, templates, and roles in your playbooks.</p>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

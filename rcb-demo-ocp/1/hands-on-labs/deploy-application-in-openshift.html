@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Deploy application in OpenShift :: OpenShift Basics</title>
+    <link rel="prev" href="hands-on-labs.html">
+    <link rel="next" href="../appendix/appendix.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="hands-on-labs.html">Hands-on Labs</a></li>
+    <li><a href="deploy-application-in-openshift.html">Deploy application in OpenShift</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Deploy application in OpenShift</h1>
+<div class="sect2">
+<h3 id="_deploying_applications_on_openshift"><a class="anchor" href="#_deploying_applications_on_openshift"></a>Deploying applications on OpenShift</h3>
+<div class="paragraph">
+<p>In this section, we will explore the process of deploying applications on Red Hat OpenShift. We&#8217;ll cover creating projects and users, building container images, and utilizing Source-to-Image (S2I) for application deployment.</p>
+</div>
+<div class="sect3">
+<h4 id="_1_creating_projects_and_users"><a class="anchor" href="#_1_creating_projects_and_users"></a>1. Creating Projects and Users</h4>
+<div class="paragraph">
+<p>OpenShift uses the concept of <strong>projects</strong> to provide a multi-tenancy environment where different teams can have their isolated environments.</p>
+</div>
+<div class="paragraph">
+<p>To create a new project:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to your OpenShift cluster as a user with cluster admin privileges.</p>
+</li>
+<li>
+<p>Run the following command, replacing <code>&lt;project_name&gt;</code> with the desired name for your project:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc new-project &lt;project_name&gt;
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Next, let&#8217;s create a new user and grant them project-specific access.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>As the cluster admin, run the following command to create a new user, replacing <code>&lt;user_name&gt;</code> and <code>&lt;password&gt;</code> with your desired credentials:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc create serviceaccount &lt;user_name&gt; -n &lt;project_name&gt; --dry-run=client -o yaml | oc apply -f -
+oc adm policy add-scc privileged -z &lt;user_name&gt;-&lt;project_name&gt; -n &lt;project_name&gt;
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Now, create a new user with the provided password:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+htpasswd -b -c &lt;path_to_authfile&gt; &lt;user_name&gt; &lt;password&gt;
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Lastly, grant the newly created user access to the project:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc adm policy add-role-to-user edit &lt;user_name&gt;-&lt;project_name&gt; -n &lt;project_name&gt; --user=&lt;user_name&gt;
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_building_container_images"><a class="anchor" href="#_2_building_container_images"></a>2. Building Container Images</h4>
+<div class="paragraph">
+<p>To deploy applications in OpenShift, you&#8217;ll typically start with a container image. OpenShift supports various methods for building these images, including using Dockerfiles or Source-to-Image (S2I).</p>
+</div>
+<div class="sect4">
+<h5 id="_using_dockerfiles"><a class="anchor" href="#_using_dockerfiles"></a>Using Dockerfiles</h5>
+<div class="paragraph">
+<p>If you already have a Dockerfile for your application, you can build the image locally and then push it to an image registry accessible by your OpenShift cluster. Here’s how:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Build the Docker image locally:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+docker build -t &lt;image_name&gt;:&lt;tag&gt; .
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Tag the image with your registry information (replace <code>&lt;registry_url&gt;</code> and <code>&lt;image_name&gt;</code>):</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+docker tag &lt;image_name&gt;:&lt;tag&gt; &lt;registry_url&gt;/&lt;image_name&gt;:&lt;tag&gt;
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Push the image to your registry:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+docker push &lt;registry_url&gt;/&lt;image_name&gt;:&lt;tag&gt;
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_using_source_to_image_s2i"><a class="anchor" href="#_using_source_to_image_s2i"></a>Using Source-to-Image (S2I)</h5>
+<div class="paragraph">
+<p>OpenShift&#8217;s S2I framework simplifies building container images by taking your source code and combining it with an installer or builder image to produce a new image containing your application.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Identify the appropriate S2I builder image for your application&#8217;s technology stack from the OpenShift registry (e.g., <code>openshift/python-36-centos7</code> for Python applications).</p>
+</li>
+<li>
+<p>Create a <code>s2i</code> directory in your source code repository with the following files:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application</code>: Contains your application’s source code.</p>
+</li>
+<li>
+<p><code>assemble</code>: A script to configure and build the application (if required).</p>
+</li>
+<li>
+<p><code>run</code>: A script to start your application.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Build and deploy using OpenShift&#8217;s S2I process:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc new-build --strategy=s2i --name=&lt;app_name&gt; &lt;builder_image&gt;
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Monitor the build progress with:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc logs -f bc/&lt;app_name&gt;
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Once the build is successful, create a deployment from the built image:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc new-deployment --image=&lt;built_image_name&gt; &lt;app_name&gt;
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_hands_on_lab_deploy_an_application_in_openshift"><a class="anchor" href="#_3_hands_on_lab_deploy_an_application_in_openshift"></a>3. Hands-on Lab: Deploy an Application in OpenShift</h4>
+<div class="paragraph">
+<p>Now that you understand how to create projects and users and build container images, let&#8217;s put these skills into practice with a hands-on lab.</p>
+</div>
+<div class="paragraph">
+<p><strong>Objective:</strong> Deploy a simple web application using the Flask framework on OpenShift.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a new project called <code>flask-app</code>:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc new-project flask-app
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create a new user <code>openshift-user</code> with password <code>openshift-pass</code>:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+htpasswd -b -c /etc/origin/master/htpasswd openshift-user openshift-pass
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Grant the <code>openshift-user</code> access to the <code>flask-app</code> project:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc adm policy add-role-to-user edit system:authenticated -n flask-app --user=openshift-user
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create a Dockerfile for your Flask application (if you don&#8217;t already have one):</p>
+<div class="literalblock">
+<div class="content">
+<pre>```Dockerfile
+# Use an official Python runtime as a parent image
+FROM python:3.8-slim</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Set the working directory in the container to /app
+WORKDIR /app</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Copy the current directory contents into the container at /app
+ADD . /app</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Make port 80 available to the world outside this container
+EXPOSE 80</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Run app.py when the container launches
+CMD ["python", "app.py"]
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Build and push the Docker image to a registry (e.g., Docker Hub):</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+docker build -t &lt;your_dockerhub_username&gt;/flask-app:latest .
+docker login
+docker push &lt;your_dockerhub_username&gt;/flask-app:latest
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create a new OpenShift Build Configuration using the pushed image:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc new-build --strategy=docker --name=flask-app-build --image-version=latest \
+  --output-to=docker-images/&lt;your_dockerhub_username&gt;/flask-app:latest
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Once the build is successful, create a deployment from the built image:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc new-deployment --image=&lt;your_dockerhub_username&gt;/flask-app:latest flask-app
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Expose the application using a Route:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc expose svc flask-app
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Get the application&#8217;s URL to access it in your browser:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc get routes
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Congratulations! You&#8217;ve successfully deployed a Flask web application on OpenShift using both Docker and S2I methods. This exercise illustrates the flexibility of OpenShift for deploying diverse applications with varying requirements.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="hands-on-labs.html">Hands-on Labs</a></span>
+  <span class="next"><a href="../appendix/appendix.html">Appendix</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

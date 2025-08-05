@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Building container images :: OpenShift Basics</title>
+    <link rel="prev" href="creating-projects-and-users.html">
+    <link rel="next" href="using-source-to-image-s2i-for-application-deployment.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs/hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs/deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="deploying-applications-on-openshift.html">Deploying applications on OpenShift</a></li>
+    <li><a href="building-container-images.html">Building container images</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Building container images</h1>
+<h1 id="_openshift_basics" class="sect0"><a class="anchor" href="#_openshift_basics"></a>OpenShift Basics</h1>
+<div class="sect1">
+<h2 id="_deploying_applications_on_openshift"><a class="anchor" href="#_deploying_applications_on_openshift"></a>Deploying applications on OpenShift</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+</div>
+<h1 id="_building_container_images" class="sect0"><a class="anchor" href="#_building_container_images"></a>Building Container Images</h1>
+<div class="paragraph">
+<p>Building container images is a crucial step in deploying applications on Red Hat OpenShift. A container image is a lightweight, standalone, and executable package that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings. In this section, we&#8217;ll discuss the process of building container images using the <code>docker build</code> command and the Source-to-Image (S2I) method, which is specifically designed for OpenShift.</p>
+</div>
+<div class="sect1">
+<h2 id="_1_docker_build"><a class="anchor" href="#_1_docker_build"></a>1. Docker Build</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before diving into OpenShift-specific methods, it&#8217;s beneficial to understand how to build container images using the traditional <code>docker build</code> command. This process involves creating a Dockerfile that specifies instructions to assemble an image.</p>
+</div>
+<div class="sect2">
+<h3 id="_step_1_create_a_dockerfile"><a class="anchor" href="#_step_1_create_a_dockerfile"></a>Step 1: Create a Dockerfile</h3>
+<div class="paragraph">
+<p>Create a simple Dockerfile in your project directory with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-lang="Dockerfile"># Use a minimal base image
+FROM registry.access.redhat.com/ubi8/ubi:latest
+
+# Install application dependencies
+RUN yum install -y &lt;your-application-dependencies&gt;
+
+# Copy application files into the container
+COPY . /opt/&lt;app-name&gt;
+
+# Set the working directory
+WORKDIR /opt/&lt;app-name&gt;
+
+# Expose the port your application listens on
+EXPOSE 8080
+
+# Define a command to run when the container launches
+CMD ["&lt;command-to-run-your-application&gt;"]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Replace <code>&lt;your-application-dependencies&gt;</code>, <code>&lt;app-name&gt;</code>, and <code>&lt;command-to-run-your-application&gt;</code> with appropriate values for your application.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_2_build_the_docker_image"><a class="anchor" href="#_step_2_build_the_docker_image"></a>Step 2: Build the Docker Image</h3>
+<div class="paragraph">
+<p>Use the following command to build the Docker image from the Dockerfile:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker build -t &lt;image-name&gt;:&lt;tag&gt; .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Replace <code>&lt;image-name&gt;</code> and <code>&lt;tag&gt;</code> with desired names and tags for your container image.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_3_test_the_docker_image_optional"><a class="anchor" href="#_step_3_test_the_docker_image_optional"></a>Step 3: Test the Docker Image (optional)</h3>
+<div class="paragraph">
+<p>You can test the built image locally using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker run -p 8080:&lt;application-port&gt; &lt;image-name&gt;:&lt;tag&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_source_to_image_s2i_for_openshift"><a class="anchor" href="#_2_source_to_image_s2i_for_openshift"></a>2. Source-to-Image (S2I) for OpenShift</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenShift provides a specialized method called Source-to-Image (S2I) to build container images tailored for deployment on the platform. S2I automates the building of reproducible container images by combining source code with a base image, then assembling everything into a new image.</p>
+</div>
+<div class="sect2">
+<h3 id="_step_1_create_an_s2i_builder_image"><a class="anchor" href="#_step_1_create_an_s2i_builder_image"></a>Step 1: Create an S2I Builder Image</h3>
+<div class="paragraph">
+<p>To create an S2I builder image, you need to define a build script and assemble it into a Docker image. Refer to the [official OpenShift documentation](<a href="https://docs.openshift.com/container-platform/4.x/builds/understanding-build-config.html#assembly-script" class="bare">https://docs.openshift.com/container-platform/4.x/builds/understanding-build-config.html#assembly-script</a>) for detailed instructions on creating an S2I builder image.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_2_use_the_s2i_builder_image_to_build_container_images"><a class="anchor" href="#_step_2_use_the_s2i_builder_image_to_build_container_images"></a>Step 2: Use the S2I Builder Image to Build Container Images</h3>
+<div class="paragraph">
+<p>Once you have your custom S2I builder image, you can use it to build container images in OpenShift by creating a BuildConfig resource. This is done through the OpenShift web console or <code>oc</code> command-line tool. Here&#8217;s an example using <code>oc</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc new-build --strategy=s2i --name=&lt;builder-image&gt; &lt;source-repository-url&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Replace <code>&lt;builder-image&gt;</code> with a name for your builder image and <code>&lt;source-repository-url&gt;</code> with the URL to your application&#8217;s source code repository.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_3_deploy_the_built_image_to_openshift"><a class="anchor" href="#_step_3_deploy_the_built_image_to_openshift"></a>Step 3: Deploy the Built Image to OpenShift</h3>
+<div class="paragraph">
+<p>After successfully building the container image using S2I, you can deploy it to OpenShift by creating an DeploymentConfig or using <code>oc apply</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc new-app &lt;built-image&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command will create a new application using the built container image.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Building container images is essential for deploying applications on Red Hat OpenShift. You can build images using traditional methods like <code>docker build</code> or OpenShift&#8217;s specialized Source-to-Image (S2I) approach, which is better suited for automated and reproducible builds tailored to the platform. Understanding both methods provides flexibility in choosing the best practice depending on your project requirements.</p>
+</div>
+<div class="paragraph">
+<p><strong>Hands-on Lab:</strong> In the subsequent lab activity, you will practice building container images using both <code>docker build</code> and OpenShift&#8217;s S2I method, followed by deploying these images onto an OpenShift cluster for hands-on experience.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="creating-projects-and-users.html">Creating projects and users</a></span>
+  <span class="next"><a href="using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

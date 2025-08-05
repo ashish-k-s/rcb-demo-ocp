@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Engage in activities to reinforce learning :: OpenShift Basics</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs/hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs/deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="engage-in-activities-to-reinforce-learning.html">Engage in activities to reinforce learning</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Engage in activities to reinforce learning</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>To engage in activities that reinforce learning within the context of our test course, we will design a series of practical exercises that allow participants to apply the key concepts and principles they&#8217;ve learned. These hands-on labs will be structured as follows:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hands_on_lab_activities"><a class="anchor" href="#_hands_on_lab_activities"></a>Hands-On Lab Activities</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_activity_1_setting_up_the_testing_environment"><a class="anchor" href="#_activity_1_setting_up_the_testing_environment"></a>Activity 1: Setting up the Testing Environment</h3>
+<div class="paragraph">
+<p>Objective: Familiarize learners with the necessary tools and configurations for conducting tests in our controlled environment.</p>
+</div>
+<div class="paragraph">
+<p>Steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Prerequisites</strong>: Ensure participants have access to a local or cloud-based system that meets the minimum requirements (e.g., operating system, virtualization software, etc.).</p>
+</li>
+<li>
+<p><strong>Installation</strong>: Guide learners through installing the required testing tools and utilities. This may include test management software, automation frameworks, and any necessary plugins or extensions.</p>
+</li>
+<li>
+<p><strong>Configuration</strong>: Teach participants how to configure their testing environment correctly, including setting up connections to target applications, databases, or APIs.</p>
+</li>
+<li>
+<p><strong>Verification</strong>: Have learners confirm that the setup is working as expected by performing simple tests or checks.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_activity_2_designing_test_cases"><a class="anchor" href="#_activity_2_designing_test_cases"></a>Activity 2: Designing Test Cases</h3>
+<div class="paragraph">
+<p>Objective: Apply learned principles to design comprehensive and effective test cases for various scenarios.</p>
+</div>
+<div class="paragraph">
+<p>Steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Review key concepts</strong>: Recap essential elements of test case design, such as test objectives, prerequisites, steps, expected results, and postconditions.</p>
+</li>
+<li>
+<p><strong>Identify test types</strong>: Distinguish between functional, non-functional, regression, and other test types to ensure a well-rounded understanding.</p>
+</li>
+<li>
+<p><strong>Develop test cases</strong>: Instruct participants to create test cases for a given scenario or application feature based on the learned principles. Encourage them to consider edge cases, boundary conditions, and potential user errors.</p>
+</li>
+<li>
+<p><strong>Peer review</strong>: Facilitate a group activity where learners exchange their test cases with peers for constructive feedback and discussion.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_activity_3_executing_tests_and_reporting_results"><a class="anchor" href="#_activity_3_executing_tests_and_reporting_results"></a>Activity 3: Executing Tests and Reporting Results</h3>
+<div class="paragraph">
+<p>Objective: Practice executing tests using the designed cases and reporting results effectively.</p>
+</div>
+<div class="paragraph">
+<p>Steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Test execution</strong>: Guide participants in running their developed test cases against a target application or system, emphasizing best practices for maintaining consistency and accuracy.</p>
+</li>
+<li>
+<p><strong>Defect reporting</strong>: Teach learners how to document defects or issues found during testing, focusing on providing clear, concise, and actionable information for developers and stakeholders.</p>
+</li>
+<li>
+<p><strong>Generate test reports</strong>: Have participants create test summaries or reports detailing the overall test execution, including passed and failed test cases, defect statistics, and any relevant observations or insights.</p>
+</li>
+<li>
+<p><strong>Discussion</strong>: Facilitate a group discussion on reported results and observed challenges, encouraging learners to share their experiences and lessons learned.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>These activities aim to provide learners with practical experience in applying the principles covered throughout the test course, helping them solidify their understanding of testing concepts, methodologies, and best practices. By actively engaging in these hands-on exercises, participants will be better prepared to tackle real-world testing challenges confidently.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

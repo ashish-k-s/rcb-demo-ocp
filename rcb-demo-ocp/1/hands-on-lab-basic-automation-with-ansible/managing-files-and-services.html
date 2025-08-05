@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Managing files and services :: OpenShift Basics</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs/hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs/deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="managing-files-and-services.html">Managing files and services</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Managing files and services</h1>
+<h1 id="_managing_files_and_services_with_ansible" class="sect0"><a class="anchor" href="#_managing_files_and_services_with_ansible"></a>Managing Files and Services with Ansible</h1>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Ansible excels at managing system configurations, including file and service management tasks. This section will guide you through essential techniques for handling files and services using Ansible Playbooks.</p>
+</div>
+<div class="paragraph">
+<p>File Management Tasks</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Ansible provides powerful built-in modules to handle file operations, such as copying, removing, and modifying files efficiently. Here are some examples:
+
+### Copying Files
+
+To copy a local file to remote servers, use the `copy` module in your playbook.
+
+```yaml
+---
+- name: Copy a configuration file
+  hosts: managed_nodes
+  tasks:
+    - name: Copy config.conf from localhost to remote server
+      copy:
+        src: /etc/ansible/config.conf
+        dest: /etc/myapp/config.conf
+```
+
+### Removing Files
+
+To remove files on managed nodes, utilize the `file` module with the `state: absent` parameter.
+
+```yaml
+---
+- name: Remove a file
+  hosts: managed_nodes
+  tasks:
+    - name: Remove log.txt
+      file:
+        path: /var/log/my_app/log.txt
+        state: absent
+```
+
+### Modifying Files
+
+You can edit files using the `lineinfile` module, which allows you to add, replace, or delete lines within a file.
+
+```yaml
+---
+- name: Ensure a specific line exists in a file
+  hosts: managed_nodes
+  tasks:
+    - name: Insert a line into a file
+      lineinfile:
+        path: /etc/myapp/app.conf
+        line: 'my_custom_option = some_value'
+```
+
+Service Management Tasks
+------------------------
+
+Ansible offers several modules to manage services effectively, ensuring they are running or stopped as required on your managed nodes. Some common service management tasks include starting, stopping, restarting, and enabling services.
+
+### Starting a Service
+
+To start a service using Ansible, use the `service` module with the `name` parameter set to the desired service name.
+
+```yaml
+---
+- name: Start the my_app service
+  hosts: managed_nodes
+  tasks:
+    - name: Ensure my_app is started
+      service:
+        name: my_app
+        state: started
+```
+
+### Stopping a Service
+
+To stop a service, set the `state` parameter to `stopped`.
+
+```yaml
+---
+- name: Stop the my_app service
+  hosts: managed_nodes
+  tasks:
+    - name: Ensure my_app is stopped
+      service:
+        name: my_app
+        state: stopped
+```
+
+### Restarting a Service
+
+To restart a service, set the `state` parameter to `restarted`.
+
+```yaml
+---
+- name: Restart the my_app service
+  hosts: managed_nodes
+  tasks:
+    - name: Ensure my_app is restarted
+      service:
+        name: my_app
+        state: restarted
+```
+
+### Enabling a Service
+
+To ensure that a service starts automatically at boot, use the `enabled` parameter.
+
+```yaml
+---
+- name: Enable the my_app service
+  hosts: managed_nodes
+  tasks:
+    - name: Ensure my_app is enabled
+      service:
+        name: my_app
+        enabled: yes
+```
+
+These examples demonstrate basic file and service management with Ansible Playbooks. Remember, these are just starting points; you can extend and customize them based on your specific use cases.
+
+For further learning, consider experimenting with these tasks in a hands-on lab environment to gain practical experience managing files and services using Ansible.</pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

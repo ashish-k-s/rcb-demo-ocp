@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Understanding the communication between components :: OpenShift Basics</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs/hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs/deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="understanding-the-communication-between-components.html">Understanding the communication between components</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Understanding the communication between components</h1>
+<h1 id="_ansible_basics" class="sect0"><a class="anchor" href="#_ansible_basics"></a>Ansible Basics</h1>
+<div class="sect1">
+<h2 id="_ansible_architecture_and_components"><a class="anchor" href="#_ansible_architecture_and_components"></a>Ansible Architecture and Components</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Understanding the Communication Between Components</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ansible follows a client-server architecture model where the central node, known as the Control Node, manages the configuration and automation of Managed Nodes over SSH (Secure Shell). To ensure efficient communication, let&#8217;s break down the interaction between these components:</p>
+</div>
+<div class="sect2">
+<h3 id="_control_node"><a class="anchor" href="#_control_node"></a>Control Node</h3>
+<div class="paragraph">
+<p>The Control Node is where you write Ansible Playbooks – human-readable files containing instructions for automating tasks. It stores inventory data, variables, and roles, and manages the execution of Playbooks against Managed Nodes.</p>
+</div>
+<div class="sect3">
+<h4 id="_communication_role"><a class="anchor" href="#_communication_role"></a>Communication Role</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Control Node initiates communication with Managed Nodes by sending tasks defined in the playbooks over SSH.</p>
+</li>
+<li>
+<p>It uses a minimal Python runtime environment (Ansible Core) on Managed Nodes to execute these tasks remotely without requiring a full installation of Ansible.</p>
+</li>
+<li>
+<p>This approach enables quick, stateless execution, where Ansible only transfers necessary data and leaves no traces after task completion.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_managed_nodes"><a class="anchor" href="#_managed_nodes"></a>Managed Nodes</h3>
+<div class="paragraph">
+<p>Managed Nodes are the target systems you wish to configure or automate using Ansible Playbooks. These can be servers, workstations, or any other devices capable of running SSH.</p>
+</div>
+<div class="sect3">
+<h4 id="_communication_role_2"><a class="anchor" href="#_communication_role_2"></a>Communication Role</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the Control Node sends tasks to Managed Nodes via SSH, the Managed Nodes receive and interpret the instructions.</p>
+</li>
+<li>
+<p>Using the embedded Ansible Core, Managed Nodes perform the assigned tasks locally, such as installing packages, managing files, or configuring services.</p>
+</li>
+<li>
+<p>Results of these actions are then sent back to the Control Node for verification and further processing.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inventory"><a class="anchor" href="#_inventory"></a>Inventory</h3>
+<div class="paragraph">
+<p>The inventory file in Ansible defines a list of hosts (Managed Nodes) grouped into logical units (e.g., webservers, databases). It provides connection information for Control Node to reach Managed Nodes over SSH or other protocols.</p>
+</div>
+<div class="sect3">
+<h4 id="_communication_role_3"><a class="anchor" href="#_communication_role_3"></a>Communication Role</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Control Node uses the inventory data to determine which Managed Nodes require specific tasks or playbooks.</p>
+</li>
+<li>
+<p>It establishes connections based on defined groups and variables in the inventory file, ensuring that communication is targeted and efficient.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h3>
+<div class="paragraph">
+<p>Ansible&#8217;s communication model leverages SSH for secure, stateless interactions between Control Nodes and Managed Nodes. By utilizing a minimal runtime environment on Managed Nodes, Ansible ensures quick and efficient automation without leaving behind residual software or configurations. This design promotes scalability, flexibility, and ease of management in diverse IT environments.</p>
+</div>
+<div class="paragraph">
+<p>This foundational understanding of communication paves the way for learning more about writing playbooks, managing configurations, and executing hands-on labs with Ansible.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

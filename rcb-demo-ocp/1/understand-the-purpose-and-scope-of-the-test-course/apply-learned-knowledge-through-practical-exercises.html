@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Apply learned knowledge through practical exercises :: OpenShift Basics</title>
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../deploying-applications-on-openshift/deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deploying-applications-on-openshift/using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs/hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs/deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="apply-learned-knowledge-through-practical-exercises.html">Apply learned knowledge through practical exercises</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Apply learned knowledge through practical exercises</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>To apply learned knowledge through practical exercises within the context of the Test Course, we will focus on hands-on activities that reinforce key concepts and principles. These labs are designed for diverse learning levels, ensuring inclusivity and engagement. Here&#8217;s a suggested lab activity in Antora AsciiDoc format:</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_hands_on_lab_system_configuration_and_troubleshooting"><a class="anchor" href="#_3_hands_on_lab_system_configuration_and_troubleshooting"></a>3. Hands-On Lab - System Configuration and Troubleshooting</h3>
+
+</div>
+<div class="sect1">
+<h2 id="_3_1_objective"><a class="anchor" href="#_3_1_objective"></a>3.1 Objective</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The objective of this hands-on lab is to allow learners to apply their understanding of system configuration and troubleshooting by setting up a simulated environment, configuring components, and resolving issues that may arise.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_2_prerequisites"><a class="anchor" href="#_3_2_prerequisites"></a>3.2 Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Learners should have a basic understanding of:
+- System architecture principles
+- Networking fundamentals (IP addressing, subnets, routing)
+- Configuration management basics</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_3_lab_description"><a class="anchor" href="#_3_3_lab_description"></a>3.3 Lab Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this lab, you will work in a simulated environment to configure network devices and resolve configuration issues using the knowledge gained from previous sections. This activity aims to provide practical experience in system configuration and troubleshooting techniques.</p>
+</div>
+<div class="sect2">
+<h3 id="_3_4_hands_on_activity_configuring_network_devices"><a class="anchor" href="#_3_4_hands_on_activity_configuring_network_devices"></a>3.4 Hands-on Activity - Configuring Network Devices</h3>
+<div class="paragraph">
+<p>Perform the following steps to complete this lab activity:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Set up a simulated network environment.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Use virtual machines or emulators like GNS3, Cisco Packet Tracer, or similar tools to create a simple network topology with at least two routers and three hosts (clients). Assign appropriate IP addresses within subnets for each device.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Configure routing between the subnets.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enable routing on the routers using the relevant command-line interface (CLI) commands (e.g., <code>enable</code>, <code>router rip</code>, etc.).</p>
+</li>
+<li>
+<p>Configure static routes or a dynamic routing protocol such as RIP or OSPF to enable communication between the hosts across different subnets.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Verify network connectivity.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Test connectivity between hosts using tools like ping, traceroute, or telnet. Ensure that all devices can communicate with each other as intended.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_5_hands_on_activity_troubleshooting_configuration_issues"><a class="anchor" href="#_3_5_hands_on_activity_troubleshooting_configuration_issues"></a>3.5 Hands-on Activity - Troubleshooting Configuration Issues</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Introduce a configuration error.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Intentionally misconfigure one of the routers to demonstrate common troubleshooting scenarios (e.g., incorrect subnet mask, routing protocol issues).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Identify and resolve the issue.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Use CLI commands and debugging techniques (e.g., <code>show</code> commands, packet capturing) to locate the problem source. Correct the misconfiguration and verify that the network functions correctly again.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Document your troubleshooting process.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Record each step taken during the troubleshooting session, including observed symptoms, hypotheses tested, and resolutions applied. This documentation helps in understanding the thought process behind effective troubleshooting.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_6_conclusion"><a class="anchor" href="#_3_6_conclusion"></a>3.6 Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By completing this lab activity, learners will gain practical experience in configuring network devices and troubleshooting common issues. This hands-on practice reinforces the theoretical concepts covered earlier in the Test Course, ensuring a comprehensive understanding of system configuration and maintenance principles.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

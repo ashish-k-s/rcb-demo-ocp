@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating projects and users :: OpenShift Basics</title>
+    <link rel="prev" href="deploying-applications-on-openshift.html">
+    <link rel="next" href="building-container-images.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">OpenShift Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-ocp" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">OpenShift Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/introduction-to-container-orchestration-and-its-benefits.html">Introduction to container orchestration and its benefits</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-container-orchestration-and-its-benefits/overview-of-kubernetes-and-red-hat-openshift.html">Overview of Kubernetes and Red Hat OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/understanding-openshift-architecture-and-components.html">Understanding OpenShift architecture and components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/nodes-pods-services-and-deployments.html">Nodes, Pods, Services, and Deployments</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-openshift-architecture-and-components/routes-ingress-and-network-policies.html">Routes, Ingress, and Network Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="deploying-applications-on-openshift.html">Deploying applications on OpenShift</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="creating-projects-and-users.html">Creating projects and users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="building-container-images.html">Building container images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="using-source-to-image-s2i-for-application-deployment.html">Using Source-to-Image (S2I) for application deployment</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs/hands-on-labs.html">Hands-on Labs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs/deploy-application-in-openshift.html">Deploy application in OpenShift</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">OpenShift Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">OpenShift Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">OpenShift Basics</a></li>
+    <li><a href="deploying-applications-on-openshift.html">Deploying applications on OpenShift</a></li>
+    <li><a href="creating-projects-and-users.html">Creating projects and users</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Creating projects and users</h1>
+<div class="sect1">
+<h2 id="_creating_projects_and_users"><a class="anchor" href="#_creating_projects_and_users"></a>Creating Projects and Users</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Red Hat OpenShift, managing resources such as applications and users is crucial for maintaining a secure and organized environment. This section will guide you through creating projects and users in OpenShift, ensuring that your cluster remains well-organized and access is controlled appropriately.</p>
+</div>
+<div class="sect2">
+<h3 id="_1_creating_projects"><a class="anchor" href="#_1_creating_projects"></a>1. Creating Projects</h3>
+<div class="paragraph">
+<p>Projects in OpenShift serve as a way to divide cluster resources between multiple users. They provide a scope for naming and isolation of objects, including routes, build configurations, and deployments.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step-by-step instructions:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Log in to your OpenShift cluster:</strong></p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc login &lt;openshift_url&gt; -u=&lt;username&gt; --token=&lt;token&gt;
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Create a new project:</strong></p>
+<div class="literalblock">
+<div class="content">
+<pre>Use the following command to create a new project named `myproject`. Replace `&lt;new_project_name&gt;` with your desired name.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc new-project &lt;new_project_name&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>After executing this command, OpenShift will create the specified project and set it as the active project for subsequent commands.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_creating_users"><a class="anchor" href="#_2_creating_users"></a>2. Creating Users</h3>
+<div class="paragraph">
+<p>OpenShift allows you to manage users through built-in identity providers like LDAP, htpasswd, or token configurations. This section will demonstrate how to create a new user with an htpasswd file.</p>
+</div>
+<div class="paragraph">
+<p><strong>Prerequisites:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install <code>httpd</code> package on your OpenShift bastion node:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+yum install httpd -y
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create an <code>htpasswd</code> file for storing user credentials:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+htpasswd -c /etc/origin/master/htpasswd &lt;username&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;username&gt;` with the desired username for the new OpenShift user. You will be prompted to enter and confirm a password for this user.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Configure OpenShift to use the htpasswd file for authentication:</p>
+<div class="literalblock">
+<div class="content">
+<pre>Edit the `/etc/origin/master/master-config.yaml` file and update the `oauthConfig` section as follows:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```yaml
+oauthConfig:
+  ...
+  identityProviders:
+    - name: my_identity_provider
+      challenge: true
+      login:
+        redirect_uri: "postform"
+      mappingMethod: claim
+      provider:
+        apiVersion: v1
+        kind: HTPasswdPasswordIdentityProvider
+        url: "https://&lt;openshift_url&gt;/oauth2well-known"
+  ...
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;openshift_url&gt;` with your OpenShift server URL.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart the OpenShift master services for changes to take effect:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+systemctl restart origin-master-api origin-master-controllers
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create a new user in OpenShift using the <code>oc</code> command-line tool:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+oc adm create-user &lt;username&gt; --password=&lt;password&gt; --full-name="&lt;Full Name&gt;"
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;username&gt;` and `&lt;password&gt;` with the desired username and password, and `&lt;Full Name&gt;` with the full name of the user.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now you have successfully created a new project and user in your Red Hat OpenShift cluster, allowing you to manage resources more effectively and securely.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_additional_insights"><a class="anchor" href="#_additional_insights"></a>Additional Insights:</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Project Roles:</strong> OpenShift provides various predefined roles (e.g., <code>admin</code>, <code>edit</code>, <code>view</code>) that control the level of access users have within projects. You can assign these roles when creating or modifying users and groups.</p>
+</li>
+<li>
+<p><strong>Identity Providers:</strong> For production environments, it is recommended to use an external identity provider (like LDAP or Azure Active Directory) for user management instead of htpasswd files. This approach ensures better security and integration with existing identity systems.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By following the steps above, you will be able to create projects and users in your OpenShift environment effectively. This foundational understanding is essential for deploying and managing applications on OpenShift.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="deploying-applications-on-openshift.html">Deploying applications on OpenShift</a></span>
+  <span class="next"><a href="building-container-images.html">Building container images</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
