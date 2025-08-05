@@ -1,0 +1,93 @@
+#  Building container images
+
+= OpenShift Basics
+
+== Deploying applications on OpenShift
+
+...
+
+= Building Container Images
+
+Building container images is a crucial step in deploying applications on Red Hat OpenShift. A container image is a lightweight, standalone, and executable package that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings. In this section, we'll discuss the process of building container images using the `docker build` command and the Source-to-Image (S2I) method, which is specifically designed for OpenShift.
+
+## 1. Docker Build
+
+Before diving into OpenShift-specific methods, it's beneficial to understand how to build container images using the traditional `docker build` command. This process involves creating a Dockerfile that specifies instructions to assemble an image.
+
+### Step 1: Create a Dockerfile
+
+Create a simple Dockerfile in your project directory with the following content:
+
+```Dockerfile
+# Use a minimal base image
+FROM registry.access.redhat.com/ubi8/ubi:latest
+
+# Install application dependencies
+RUN yum install -y <your-application-dependencies>
+
+# Copy application files into the container
+COPY . /opt/<app-name>
+
+# Set the working directory
+WORKDIR /opt/<app-name>
+
+# Expose the port your application listens on
+EXPOSE 8080
+
+# Define a command to run when the container launches
+CMD ["<command-to-run-your-application>"]
+```
+
+Replace `<your-application-dependencies>`, `<app-name>`, and `<command-to-run-your-application>` with appropriate values for your application.
+
+### Step 2: Build the Docker Image
+
+Use the following command to build the Docker image from the Dockerfile:
+
+```bash
+docker build -t <image-name>:<tag> .
+```
+
+Replace `<image-name>` and `<tag>` with desired names and tags for your container image.
+
+### Step 3: Test the Docker Image (optional)
+
+You can test the built image locally using:
+
+```bash
+docker run -p 8080:<application-port> <image-name>:<tag>
+```
+
+## 2. Source-to-Image (S2I) for OpenShift
+
+OpenShift provides a specialized method called Source-to-Image (S2I) to build container images tailored for deployment on the platform. S2I automates the building of reproducible container images by combining source code with a base image, then assembling everything into a new image.
+
+### Step 1: Create an S2I Builder Image
+
+To create an S2I builder image, you need to define a build script and assemble it into a Docker image. Refer to the [official OpenShift documentation](https://docs.openshift.com/container-platform/4.x/builds/understanding-build-config.html#assembly-script) for detailed instructions on creating an S2I builder image.
+
+### Step 2: Use the S2I Builder Image to Build Container Images
+
+Once you have your custom S2I builder image, you can use it to build container images in OpenShift by creating a BuildConfig resource. This is done through the OpenShift web console or `oc` command-line tool. Here's an example using `oc`:
+
+```bash
+oc new-build --strategy=s2i --name=<builder-image> <source-repository-url>
+```
+
+Replace `<builder-image>` with a name for your builder image and `<source-repository-url>` with the URL to your application's source code repository.
+
+### Step 3: Deploy the Built Image to OpenShift
+
+After successfully building the container image using S2I, you can deploy it to OpenShift by creating an DeploymentConfig or using `oc apply`:
+
+```bash
+oc new-app <built-image>
+```
+
+This command will create a new application using the built container image.
+
+## Summary
+
+Building container images is essential for deploying applications on Red Hat OpenShift. You can build images using traditional methods like `docker build` or OpenShift's specialized Source-to-Image (S2I) approach, which is better suited for automated and reproducible builds tailored to the platform. Understanding both methods provides flexibility in choosing the best practice depending on your project requirements.
+
+**Hands-on Lab:** In the subsequent lab activity, you will practice building container images using both `docker build` and OpenShift's S2I method, followed by deploying these images onto an OpenShift cluster for hands-on experience.

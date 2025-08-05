@@ -1,0 +1,93 @@
+#  Creating projects and users
+
+== Creating Projects and Users
+
+In Red Hat OpenShift, managing resources such as applications and users is crucial for maintaining a secure and organized environment. This section will guide you through creating projects and users in OpenShift, ensuring that your cluster remains well-organized and access is controlled appropriately.
+
+### 1. Creating Projects
+
+Projects in OpenShift serve as a way to divide cluster resources between multiple users. They provide a scope for naming and isolation of objects, including routes, build configurations, and deployments.
+
+**Step-by-step instructions:**
+
+1. **Log in to your OpenShift cluster:**
+
+   ```bash
+   oc login <openshift_url> -u=<username> --token=<token>
+   ```
+
+2. **Create a new project:**
+
+   Use the following command to create a new project named `myproject`. Replace `<new_project_name>` with your desired name.
+
+   ```bash
+   oc new-project <new_project_name>
+   ```
+
+   After executing this command, OpenShift will create the specified project and set it as the active project for subsequent commands.
+
+### 2. Creating Users
+
+OpenShift allows you to manage users through built-in identity providers like LDAP, htpasswd, or token configurations. This section will demonstrate how to create a new user with an htpasswd file.
+
+**Prerequisites:**
+
+1. Install `httpd` package on your OpenShift bastion node:
+
+   ```bash
+   yum install httpd -y
+   ```
+
+2. Create an `htpasswd` file for storing user credentials:
+
+   ```bash
+   htpasswd -c /etc/origin/master/htpasswd <username>
+   ```
+
+   Replace `<username>` with the desired username for the new OpenShift user. You will be prompted to enter and confirm a password for this user.
+
+3. Configure OpenShift to use the htpasswd file for authentication:
+
+   Edit the `/etc/origin/master/master-config.yaml` file and update the `oauthConfig` section as follows:
+
+   ```yaml
+   oauthConfig:
+     ...
+     identityProviders:
+       - name: my_identity_provider
+         challenge: true
+         login:
+           redirect_uri: "postform"
+         mappingMethod: claim
+         provider:
+           apiVersion: v1
+           kind: HTPasswdPasswordIdentityProvider
+           url: "https://<openshift_url>/oauth2well-known"
+     ...
+   ```
+
+   Replace `<openshift_url>` with your OpenShift server URL.
+
+4. Restart the OpenShift master services for changes to take effect:
+
+   ```bash
+   systemctl restart origin-master-api origin-master-controllers
+   ```
+
+5. Create a new user in OpenShift using the `oc` command-line tool:
+
+   ```bash
+   oc adm create-user <username> --password=<password> --full-name="<Full Name>"
+   ```
+
+   Replace `<username>` and `<password>` with the desired username and password, and `<Full Name>` with the full name of the user.
+
+Now you have successfully created a new project and user in your Red Hat OpenShift cluster, allowing you to manage resources more effectively and securely.
+
+### Additional Insights:
+
+- **Project Roles:** OpenShift provides various predefined roles (e.g., `admin`, `edit`, `view`) that control the level of access users have within projects. You can assign these roles when creating or modifying users and groups.
+
+- **Identity Providers:** For production environments, it is recommended to use an external identity provider (like LDAP or Azure Active Directory) for user management instead of htpasswd files. This approach ensures better security and integration with existing identity systems.
+
+By following the steps above, you will be able to create projects and users in your OpenShift environment effectively. This foundational understanding is essential for deploying and managing applications on OpenShift.

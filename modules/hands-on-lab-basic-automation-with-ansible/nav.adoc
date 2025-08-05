@@ -1,0 +1,4 @@
+* xref:hands-on-lab-basic-automation-with-ansible.adoc[]
+** xref:setting-up-a-simple-ansible-environment.adoc[]
+** xref:running-basic-playbooks-for-system-configuration.adoc[]
+** xref:managing-files-and-services.adoc[]

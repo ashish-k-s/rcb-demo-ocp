@@ -1,0 +1,2 @@
+* xref:hands-on-labs.adoc[]
+** xref:deploy-application-in-openshift.adoc[]

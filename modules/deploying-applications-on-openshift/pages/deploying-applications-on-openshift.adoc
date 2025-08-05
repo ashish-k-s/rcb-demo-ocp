@@ -1,0 +1,13 @@
+#  Deploying applications on OpenShift
+
+= Deploying applications on OpenShift
+
+Deploying applications on Red Hat OpenShift involves several key steps to ensure smooth and efficient application lifecycle management.
+
+- **Creating projects and users**: Start by setting up projects that serve as environments for developing, testing, and deploying applications. Simultaneously, create users with appropriate roles and permissions to manage these projects effectively.
+  
+- **Building container images**: Prepare containerized applications by creating Dockerfiles or using other methods to build container images, which are the foundation for deploying on OpenShift.
+  
+- **Using Source-to-Image (S2I) for application deployment**: Leverage the S2I process to automate building, assembling, and configuring applications within containers from source code. This method simplifies the deployment process by automatically detecting build steps from the application source code.
+
+By following these steps, users can efficiently deploy their applications on OpenShift, benefitting from its robust orchestration capabilities and streamlined container management.

@@ -1,0 +1,36 @@
+#  Understanding the communication between components
+
+= Ansible Basics
+
+== Ansible Architecture and Components
+- Understanding the Communication Between Components
+
+Ansible follows a client-server architecture model where the central node, known as the Control Node, manages the configuration and automation of Managed Nodes over SSH (Secure Shell). To ensure efficient communication, let's break down the interaction between these components:
+
+### Control Node
+The Control Node is where you write Ansible Playbooks – human-readable files containing instructions for automating tasks. It stores inventory data, variables, and roles, and manages the execution of Playbooks against Managed Nodes.
+
+#### Communication Role
+1. The Control Node initiates communication with Managed Nodes by sending tasks defined in the playbooks over SSH.
+2. It uses a minimal Python runtime environment (Ansible Core) on Managed Nodes to execute these tasks remotely without requiring a full installation of Ansible.
+3. This approach enables quick, stateless execution, where Ansible only transfers necessary data and leaves no traces after task completion.
+
+### Managed Nodes
+Managed Nodes are the target systems you wish to configure or automate using Ansible Playbooks. These can be servers, workstations, or any other devices capable of running SSH.
+
+#### Communication Role
+1. When the Control Node sends tasks to Managed Nodes via SSH, the Managed Nodes receive and interpret the instructions.
+2. Using the embedded Ansible Core, Managed Nodes perform the assigned tasks locally, such as installing packages, managing files, or configuring services.
+3. Results of these actions are then sent back to the Control Node for verification and further processing.
+
+### Inventory
+The inventory file in Ansible defines a list of hosts (Managed Nodes) grouped into logical units (e.g., webservers, databases). It provides connection information for Control Node to reach Managed Nodes over SSH or other protocols.
+
+#### Communication Role
+1. The Control Node uses the inventory data to determine which Managed Nodes require specific tasks or playbooks.
+2. It establishes connections based on defined groups and variables in the inventory file, ensuring that communication is targeted and efficient.
+
+### Summary
+Ansible's communication model leverages SSH for secure, stateless interactions between Control Nodes and Managed Nodes. By utilizing a minimal runtime environment on Managed Nodes, Ansible ensures quick and efficient automation without leaving behind residual software or configurations. This design promotes scalability, flexibility, and ease of management in diverse IT environments. 
+
+This foundational understanding of communication paves the way for learning more about writing playbooks, managing configurations, and executing hands-on labs with Ansible.

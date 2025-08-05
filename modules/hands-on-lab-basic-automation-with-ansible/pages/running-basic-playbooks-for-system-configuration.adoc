@@ -1,0 +1,61 @@
+#  Running basic playbooks for system configuration
+
+- **Running Basic Playbooks for System Configuration**
+
+  In this section, we will explore how to run basic Ansible playbooks for system configuration tasks. This hands-on activity will guide you through setting up a simple environment and executing playbooks to manage files and services on managed nodes.
+
+  ### Prerequisites
+
+  Before proceeding with this lab activity, ensure that you have the following prerequisites in place:
+
+  1. A control node (your local machine or a dedicated server) with Ansible installed.
+  2. Managed nodes (target systems) accessible via SSH and added to your Ansible control node's inventory file.
+  3. Basic understanding of Ansible playbooks, including variables, templates, and roles. For more information on these topics, refer to the "Ansible Playbooks" section in this training content.
+
+  ### Hands-on Activity: Running Basic Playbooks for System Configuration
+
+  #### Step 1: Prepare Your Playbook
+
+  Create a new playbook file named `basic_config.yml` with the following content:
+
+  ```yaml
+  ---
+  - hosts: webservers
+    become: yes
+    tasks:
+      - name: Ensure Apache is installed
+        apt:
+          name: apache2
+          state: present
+
+      - name: Copy custom index file
+        copy:
+          src: /path/to/local/index.html
+          dest: /var/www/html/index.html
+  ```
+
+  In this playbook, we define a host group named `webservers` (make sure to update your inventory file with appropriate managed nodes under this group). The playbook contains two tasks:
+
+  1. Installs the Apache web server package on managed nodes using the `apt` module.
+  2. Copies a custom HTML file from your local machine to the `/var/www/html/` directory on each managed node.
+
+  #### Step 2: Run the Playbook
+
+  Execute the playbook on your managed nodes by running the following command in your control node's terminal:
+
+  ```bash
+  ansible-playbook -i inventory_file basic_config.yml
+  ```
+
+  Replace `inventory_file` with the path to your Ansible inventory file, which should list your managed nodes under the `webservers` group.
+
+  #### Step 3: Verify Results
+
+  After running the playbook, verify that Apache is installed and your custom index file is copied to the appropriate location on each managed node. You can SSH into any of the managed nodes and check the status of Apache or view the content of the `/var/www/html/index.html` file.
+
+  ```bash
+  sudo systemctl status apache2
+  cat /var/www/html/index.html
+  ```
+
+By completing this hands-on activity, you have successfully run a basic Ansible playbook to perform system configuration tasks on managed nodes. This demonstrates the power of Ansible in automating repetitive tasks and ensuring consistent configurations across multiple systems. Further explore Ansible's capabilities by experimenting with additional modules, variables, templates, and roles in your playbooks.

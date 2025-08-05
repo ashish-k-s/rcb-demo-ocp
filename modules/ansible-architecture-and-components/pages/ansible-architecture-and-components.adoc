@@ -1,0 +1,9 @@
+#  Ansible Architecture and Components
+
+Ansible Architecture and Components focuses on understanding the core elements that enable Ansible's automation capabilities. Key components include:
+
+- **Control Node**: The machine where Ansible is installed and from where it executes. It holds playbooks and has a persistent connection to managed nodes.
+- **Managed Nodes**: Target machines that Ansible configures, which can be physical or virtual.
+- **Ansible Server (or Inventory)**: A file containing the list of managed nodes, grouped logically, and providing connection details for the control node.
+
+The communication between components occurs through SSH (for Linux-based systems) or WinRM (for Windows). The control node sends tasks to managed nodes, which execute them and return the results back to the control node. This architecture allows for efficient, agentless automation across diverse IT environments.

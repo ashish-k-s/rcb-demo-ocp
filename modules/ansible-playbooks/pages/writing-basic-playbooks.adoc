@@ -1,0 +1,95 @@
+#  Writing basic playbooks
+
+### Writing Basic Playbooks
+
+Ansible playbooks are fundamental to automating tasks and managing configurations using Ansible. They are written in the YAML format, which is human-readable and easy to understand. A playbook is a collection of plays, where each play defines a set of tasks to be executed on selected managed nodes.
+
+#### Playbook Structure
+
+A basic Ansible playbook structure looks like this:
+
+```yaml
+---
+- hosts: web_servers
+  become: yes
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Start Apache service
+      service:
+        name: apache2
+        state: started
+```
+
+**Explanation:**
+
+1. **Host declaration (`hosts`):** Defines the managed nodes on which the playbook tasks will be executed. In this example, it targets all hosts in the `web_servers` group.
+
+2. **Become (Privileged Execution) (`become`):** Enables privileged execution using `sudo`, allowing tasks to perform administrative actions. Here, `become: yes` indicates that tasks should be run as the root user or another specified user with appropriate privileges.
+
+3. **Tasks block (`tasks`):** Contains a list of tasks to execute on the managed nodes.
+
+   - **`name`:** A descriptive name for the task.
+   
+   - **`apt`: Task module to manage packages using the `apt` package manager.**
+     - `name: apache2` specifies the package to manage (in this case, Apache2).
+     - `state: present` ensures that the package is installed and up-to-date.
+
+   - **`service`: Task module to manage and control system services.**
+     - `name: apache2` specifies the service name.
+     - `state: started` ensures that the service is running after installation.
+
+#### Playbook Modules
+
+Ansible provides a wide range of modules for managing various aspects of your systems, such as package management, file manipulation, user and group management, network configuration, and more. To list available modules relevant to your playbook, use the `ansible-doc` command:
+
+```bash
+ansible-doc -ml <module_name>
+```
+
+For instance, to see documentation for the `apt` module:
+
+```bash
+ansible-doc -ml apt
+```
+
+#### Hands-on Activity: Writing a Basic Playbook
+
+1. **Create a new playbook file** named `basic_playbook.yml` and paste the following content:
+
+   ```yaml
+   ---
+   - hosts: web_servers
+     become: yes
+     tasks:
+       - name: Install Apache
+         apt:
+           name: apache2
+           state: present
+
+       - name: Start Apache service
+         service:
+           name: apache2
+           state: started
+   ```
+
+2. **Create a group** in your Ansible inventory file (usually `inventory/group_vars/web_servers` or `hosts`) to hold web servers:
+
+   ```ini
+   [web_servers]
+   server1 ansible_host=192.168.1.100
+   server2 ansible_host=192.168.1.101
+   ```
+
+3. **Run the playbook** using the following command:
+
+   ```bash
+   ansible-playbook -i inventory/group_vars/web_servers basic_playbook.yml
+   ```
+
+4. **Verify** that Apache is installed and running on both servers by checking their status or visiting them in a web browser (ensure necessary firewall rules are in place for access).
+
+This hands-on activity demonstrates the process of creating, configuring, and executing a simple Ansible playbook to automate the installation and configuration of the Apache web server on managed nodes.

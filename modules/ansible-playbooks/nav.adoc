@@ -1,0 +1,3 @@
+* xref:ansible-playbooks.adoc[]
+** xref:writing-basic-playbooks.adoc[]
+** xref:variables-templates-and-roles-in-playbooks.adoc[]

@@ -1,0 +1,49 @@
+#  Apply learned knowledge through practical exercises
+
+To apply learned knowledge through practical exercises within the context of the Test Course, we will focus on hands-on activities that reinforce key concepts and principles. These labs are designed for diverse learning levels, ensuring inclusivity and engagement. Here's a suggested lab activity in Antora AsciiDoc format:
+
+=== 3. Hands-On Lab - System Configuration and Troubleshooting
+
+== 3.1 Objective
+
+The objective of this hands-on lab is to allow learners to apply their understanding of system configuration and troubleshooting by setting up a simulated environment, configuring components, and resolving issues that may arise.
+
+== 3.2 Prerequisites
+
+Learners should have a basic understanding of:
+- System architecture principles
+- Networking fundamentals (IP addressing, subnets, routing)
+- Configuration management basics
+
+== 3.3 Lab Description
+
+In this lab, you will work in a simulated environment to configure network devices and resolve configuration issues using the knowledge gained from previous sections. This activity aims to provide practical experience in system configuration and troubleshooting techniques.
+
+=== 3.4 Hands-on Activity - Configuring Network Devices
+
+Perform the following steps to complete this lab activity:
+
+1. **Set up a simulated network environment.**
+   - Use virtual machines or emulators like GNS3, Cisco Packet Tracer, or similar tools to create a simple network topology with at least two routers and three hosts (clients). Assign appropriate IP addresses within subnets for each device.
+   
+2. **Configure routing between the subnets.**
+   - Enable routing on the routers using the relevant command-line interface (CLI) commands (e.g., `enable`, `router rip`, etc.).
+   - Configure static routes or a dynamic routing protocol such as RIP or OSPF to enable communication between the hosts across different subnets.
+
+3. **Verify network connectivity.**
+   - Test connectivity between hosts using tools like ping, traceroute, or telnet. Ensure that all devices can communicate with each other as intended.
+
+=== 3.5 Hands-on Activity - Troubleshooting Configuration Issues
+
+1. **Introduce a configuration error.**
+   - Intentionally misconfigure one of the routers to demonstrate common troubleshooting scenarios (e.g., incorrect subnet mask, routing protocol issues).
+
+2. **Identify and resolve the issue.**
+   - Use CLI commands and debugging techniques (e.g., `show` commands, packet capturing) to locate the problem source. Correct the misconfiguration and verify that the network functions correctly again.
+
+3. **Document your troubleshooting process.**
+   - Record each step taken during the troubleshooting session, including observed symptoms, hypotheses tested, and resolutions applied. This documentation helps in understanding the thought process behind effective troubleshooting.
+
+== 3.6 Conclusion
+
+By completing this lab activity, learners will gain practical experience in configuring network devices and troubleshooting common issues. This hands-on practice reinforces the theoretical concepts covered earlier in the Test Course, ensuring a comprehensive understanding of system configuration and maintenance principles.

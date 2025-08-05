@@ -1,0 +1,73 @@
+#  Using Source-to-Image (S2I) for application deployment
+
+= Using Source-To-Image (S2I) for Application Deployment
+
+Source-to-Image (S2I) is a method in Red Hat OpenShift that automates the process of taking source code and transforming it into an executable container image. This approach simplifies application deployment as it abstracts the complexities of creating container images, allowing developers to focus on writing and pushing their code.
+
+## S2I Process Overview
+
+The S2I process involves three main steps:
+
+1. **Assemble**: This step takes your source code and combines it with a base image, which contains all the necessary build tools and libraries needed for compiling or assembling the application. In essence, the source code is added to the base image in an isolated manner, creating an intermediate container that contains everything required to build the final application image.
+
+2. **Build**: The intermediate container from the Assemble phase undergoes a build process where the source code is compiled or assembled into an executable format. This step also optimizes and finalizes the application inside the container.
+
+3. **Run**: Once the build phase completes, you receive a ready-to-use container image containing your compiled or assembled application along with its dependencies. This image can be easily deployed to OpenShift for running your application in production.
+
+## Advantages of Using S2I
+
+* **Automation**: S2I automates the creation of container images from source code, reducing manual intervention and human error.
+* **Consistency**: By using predefined base images and assembly scripts, S2I ensures consistent build environments across different teams and systems.
+* **Simplicity**: Developers only need to focus on their application’s source code without worrying about creating and managing container images manually.
+* **Version control**: S2I supports versioned builds by tagging images with the commit SHA or branch name, making it easier to track changes and roll back if necessary.
+
+## Hands-on Lab: Deploy an Application Using Source-To-Image in OpenShift
+
+### Prerequisites
+
+1. Access to a running Red Hat OpenShift cluster
+2. The `oc` (OpenShift CLI) tool installed on your local machine
+3. A simple application source code (e.g., Node.js, Python, or Java)
+
+### Steps
+
+1. **Login to OpenShift**: Use the following command to log in to your OpenShift cluster:
+
+   ```
+   oc login <openshift_cluster_url> --token=<token>
+   ```
+
+2. **Create a New Project**: Create a new project where you will deploy your application using S2I.
+
+   ```
+   oc new-project <your_project_name>
+   ```
+
+3. **Prepare Application Source Code**: Ensure your application source code is organized in the appropriate format, typically as a Git repository.
+
+4. **Create an S2I Builder Image (if necessary)**: If you're using a custom language or framework, create a custom builder image based on Red Hat's Universal Base Image (UBI). For example, if you are building a Node.js application:
+
+   ```
+   oc new-build --strategy=source --name=<builder_image_name> \
+     -l app=<your_app_name> \
+     -o config=s2i-config.json
+   ```
+
+5. **Deploy Application Using S2I**: Use the builder image to deploy your application:
+
+   ```
+   oc new-app <builder_image_name> \
+       --name=<app_name> \
+       -e=<environment_variables> \
+       --build-env=<build_environment_variables>
+   ```
+
+6. **Expose Application**: Expose the deployed application using a route to access it from outside OpenShift:
+
+   ```
+   oc expose svc/<app_name> --hostname=<desired_domain_name>
+   ```
+
+7. **Access Your Application**: Access your running application via the exposed route URL.
+
+By following these steps, you have successfully used Source-to-Image to deploy a simple application in Red Hat OpenShift. This hands-on experience demonstrates how S2I simplifies and automates container image creation from source code, reducing the overhead of managing complex build processes.

@@ -1,0 +1,49 @@
+#  Package management tasks
+
+= Managing Configurations with Ansible
+
+== Package Management Tasks
+
+Ansible simplifies package management across managed nodes by allowing you to define desired states for software packages using playbooks. This section focuses on how to manage system configurations, specifically handling package installations and removals. We will explore various methods to control the presence of specific packages and keep systems up-to-date with minimal manual intervention.
+
+Ansible uses different modules to interact with package managers like `apt` (for Debian/Ubuntu), `yum` (for CentOS/RHEL), or `dnf` (for newer Fedora installations). These modules enable you to:
+
+1. **Install packages**
+2. **Remove packages**
+3. **Update packages**
+4. List and check installed packages
+
+Here's an example playbook that demonstrates how to manage packages using the `yum` module on CentOS/RHEL systems:
+
+[source, yaml, trimmed]
+---
+- name: Install and update packages
+  hosts: managed_nodes
+  become: yes  # Run tasks as root (elevated privileges)
+  tasks:
+    - name: Ensure httpd package is installed
+      yum:
+        name: httpd
+        state: present
+
+    - name: Ensure httpd is at the latest version
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Remove httpd package
+      yum:
+        name: httpd
+        state: absent
+
+In this playbook:
+- `managed_nodes` represents a group of hosts (servers) you want to manage.
+- The `become: yes` directive ensures that tasks are executed with root privileges when necessary, such as installing or removing packages.
+- Three tasks demonstrate different package management operations:
+  - The first task ensures the `httpd` package is installed on managed nodes using the `yum` module with `state: present`.
+  - The second task updates the `httpd` package to its latest version using `state: latest`.
+  - The third task removes the `httpd` package from managed nodes using `state: absent`.
+
+Ansible's package management capabilities allow you to maintain consistent system configurations and streamline maintenance tasks across your infrastructure. You can adapt these examples for other package managers or adjust them according to specific requirements in your environment.
+
+For a practical experience with Ansible package management, proceed to the Hands-on Lab: Basic Automation with Ansible section, where we will guide you through setting up an Ansible environment and running playbooks similar to this example to manage packages on target systems.

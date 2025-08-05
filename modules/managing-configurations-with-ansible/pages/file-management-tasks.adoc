@@ -1,0 +1,100 @@
+#  File management tasks
+
+== Managing Configurations with Ansible
+
+Ansible excels at managing configurations, and file management is a crucial part of this capability. With Ansible, you can easily deploy, modify, or remove files on remote systems, ensuring consistent configuration across your infrastructure. This section will cover:
+
+1. **Using the `copy` module**
+   The `copy` module in Ansible is used to copy files from the control node to managed nodes. It supports various options for managing file properties like ownership, mode, and backup.
+
+   - **Syntax**:
+     ``` AsciiDoc
+     copy: <src> <dest> [options]
+     ```
+
+   - **Options**:
+     - `src`: The source file or directory path on the control node.
+     - `dest`: The destination path on the managed nodes.
+     - `mode`: File permissions (octal).
+     - `owner`, `group`: User and group ownership.
+     - `backup`: Create a backup of the existing file before copying.
+     - `checksum`: Verify the file's checksum.
+     - `force`: Overwrite the destination if it already exists.
+
+   - **Example**:
+     ``` AsciiDoc
+     ---
+     - name: Copy a local file to remote servers
+       hosts: all
+       tasks:
+         - name: Ensure /tmp/hello.txt exists on remote nodes
+           copy:
+             src: ../files/hello.txt
+             dest: /tmp/hello.txt
+             mode: '0755'
+     ```
+
+2. **Using the `template` module**
+   The `template` module in Ansible allows you to create dynamic configuration files by combining Jinja2 templating with file operations. It reads a template file and renders it using variables, enabling you to manage configurations based on specific requirements.
+
+   - **Syntax**:
+     ``` AsciiDoc
+     template: <template_file> <dest_file> [options]
+     ```
+
+   - **Options**:
+     - `src`: The path to the Jinja2 template file on the control node.
+     - `dest`: The destination path for the rendered file on managed nodes.
+     - `vars`: A dictionary of variables to use in rendering the template.
+
+   - **Example**:
+     Create a template file named `myconfig.j2` with the following content:
+     ```
+     # myconfig.j2
+     My custom configuration: {{ ansible_hostname }}
+     ```
+
+     Then, use the `template` module in your playbook:
+     ``` AsciiDoc
+     ---
+     - name: Render a template and copy it to remote servers
+       hosts: all
+       tasks:
+         - name: Ensure /etc/customconfig exists and is templated
+           template:
+             src: myconfig.j2
+             dest: /etc/customconfig
+     ```
+
+3. **Using the `file` module**
+   The `file` module in Ansible manages files and directories, allowing you to create, remove, or modify files on managed nodes. It supports various options for handling file properties like ownership, mode, state, and recursive operations.
+
+   - **Syntax**:
+     ``` AsciiDoc
+     file: <path> [options]
+     ```
+
+   - **Options**:
+     - `path`: The target path for file/directory creation or modification.
+     - `state`: Ensure the file or directory is present (absent) or absent (present).
+     - `mode`: File permissions (octal).
+     - `owner`, `group`: User and group ownership.
+     - `recurse`: Apply to directories recursively.
+
+   - **Example**:
+     ``` AsciiDoc
+     ---
+     - name: Ensure /tmp/customdir exists and is a directory
+       file:
+         path: /tmp/customdir
+         state: directory
+         mode: '0755'
+
+     - name: Ensure /tmp/customfile exists with specific permissions
+       file:
+         path: /tmp/customfile
+         state: file
+         mode: '0644'
+     ```
+
+By mastering these file management tasks in Ansible, you can efficiently automate the configuration and maintenance of your infrastructure. Practice implementing these concepts through hands-on lab activities to enhance your understanding and proficiency.

@@ -1,0 +1,10 @@
+#  Hands-on Labs
+
+= Hands-on Labs
+
+This section provides practical, step-by-step guidance on deploying applications in Red Hat OpenShift. It includes hands-on exercises designed to reinforce learning from previous sections on container orchestration and OpenShift architecture. Users will learn to:
+
+- Create projects and manage users for application isolation and access control
+- Build custom container images or utilize the Source-to-Image (S2I) tool for efficient application packaging
+- Deploy applications onto the OpenShift cluster, gaining experience with various deployment strategies
+- Monitor and troubleshoot deployed applications using built-in OpenShift tools and features.

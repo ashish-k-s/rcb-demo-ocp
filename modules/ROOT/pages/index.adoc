@@ -1,22 +1,27 @@
-= An Example Quick Course
+=  OpenShift Basics
 :navtitle: Home
 
 == Introduction
 
-Course Title: Course title FIXME
+Course Title:  OpenShift Basics
 
 Description:
 Course description FIXME
 
 Duration: FIXME hours
 
-== Objectives
+== Topics covered in this course
 
-On completing this course, you should be able to:
 
-* Observable, measurable objective...
-* Observable, measurable objective...
-* Observable, measurable objective...
+*  Introduction to container orchestration and its benefits
+
+*  Understanding OpenShift architecture and components
+
+*  Deploying applications on OpenShift
+
+*  Hands-on Labs
+
+
 
 == Prerequisites
 

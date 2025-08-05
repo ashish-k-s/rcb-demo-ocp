@@ -1,10 +1,16 @@
-name: REPLACEREPONAME
-title: FIXME Course Title
+name: rcb-demo-ocp
+title:  OpenShift Basics
 version: 1
 nav:
 - modules/ROOT/nav.adoc
 - modules/LABENV/nav.adoc
-- modules/chapter1/nav.adoc
-- modules/chapter2/nav.adoc
-- modules/chapter3/nav.adoc
+
+- modules/introduction-to-container-orchestration-and-its-benefits/nav.adoc
+
+- modules/understanding-openshift-architecture-and-components/nav.adoc
+
+- modules/deploying-applications-on-openshift/nav.adoc
+
+- modules/hands-on-labs/nav.adoc
+
 - modules/appendix/nav.adoc

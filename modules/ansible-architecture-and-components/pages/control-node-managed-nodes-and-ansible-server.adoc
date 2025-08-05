@@ -1,0 +1,59 @@
+#  Control node, Managed nodes, and Ansible server
+
+= Ansible Architecture and Components
+
+Ansible architecture is centered around three primary components: the **Control Node**, the **Managed Nodes**, and the **Ansible Server** (or Ansible Automation Hub for enterprise use). Understanding these components and their interactions is crucial for effectively managing automation tasks with Ansible.
+
+## Control Node
+
+The **Control Node** serves as the central management station in an Ansible environment. It is typically a workstation or a control server where you write playbooks, manage inventory, and execute the Ansible commands to communicate with managed nodes. The control node doesn't require any special software installation on the managed nodes; it uses existing protocols like SSH for communication.
+
+### Key features of Control Node:
+- **Playbook execution**: The control node is responsible for executing playbooks that define automation tasks.
+- **Inventory management**: It maintains an inventory file, which lists all managed nodes and their attributes (e.g., IP addresses, operating systems).
+- **Module access**: The control node has access to Ansible's vast library of modules, enabling it to perform various tasks on managed nodes.
+- **Idempotency**: Control Node ensures that tasks are idempotent, meaning they can be run multiple times without changing the result beyond the initial application.
+
+## Managed Nodes
+
+**Managed Nodes** are the target systems or devices you want to automate and manage using Ansible. These could be servers, workstations, network devices, or even cloud instances. Managed nodes must have the following prerequisites:
+
+- **Ansible client package**: The managed node requires the `ansible` package installed for communicating with the control node over SSH.
+- **Open necessary ports**: Ensure that the managed nodes allow incoming connections on port 22 (SSH) from the control node.
+
+### Key features of Managed Nodes:
+- **Target systems**: Managed nodes are the actual servers, containers, or devices you want to configure and manage using Ansible playbooks.
+- **Minimal software footprint**: No special software installation is needed on managed nodes, as they primarily rely on standard protocols like SSH for communication.
+- **Idempotent configuration**: Managed nodes ensure that their configurations remain consistent with the desired state defined in the playbooks.
+
+## Ansible Server (or Ansible Automation Hub)
+
+The **Ansible Server** or **Ansible Automation Hub** is an optional component that provides additional features and functionality for enterprise users. It serves as a central repository for storing, sharing, and managing Ansible content such as:
+
+- Playbooks
+- Roles
+- Collections
+- Modules
+
+Ansible Automation Hub is available for subscription-based enterprise users and offers advanced capabilities like:
+
+- Access control and role-based access control (RBAC)
+- Content curation and governance
+- Audit trails and compliance reporting
+
+### Key features of Ansible Server/Hub:
+- **Content repository**: Centralized storage for Ansible content, enabling collaboration and version control.
+- **Advanced management**: Offers advanced features like RBAC, audit trails, and compliance reporting tailored for enterprise environments.
+- **Integration with other tools**: Enables seamless integration with existing DevOps and IT service management (ITSM) tools.
+
+## Communication between components
+
+Ansible leverages standard protocols such as SSH for secure, agentless communication between control nodes and managed nodes. When an Ansible playbook is executed on the control node:
+
+1. The control node connects to each managed node using SSH.
+2. It then executes modules (small software components) on the managed nodes to carry out specific tasks like installing packages or configuring services.
+3. Managed nodes respond to these module executions, and the control node gathers the results for further processing or reporting.
+
+Understanding this communication flow is vital for troubleshooting issues and ensuring that your Ansible automation tasks run smoothly across diverse environments.
+
+By grasping the roles of Control Node, Managed Nodes, and Ansible Server/Hub along with their interactions, you set a solid foundation for mastering Ansible's powerful automation capabilities.

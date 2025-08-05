@@ -1,6 +1,6 @@
 site:
-  title: FIXME Course Title
-  start_page: REPLACEREPONAME::index.adoc
+  title:  OpenShift Basics
+  start_page: rcb-demo-ocp::index.adoc
 
 content:
   sources:

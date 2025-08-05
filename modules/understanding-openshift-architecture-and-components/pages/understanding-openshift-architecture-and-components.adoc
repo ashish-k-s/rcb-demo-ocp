@@ -1,0 +1,14 @@
+#  Understanding OpenShift architecture and components
+
+Understanding OpenShift Architecture and Components involves delving into the core elements that make up a Red Hat OpenShift cluster. Key components include:
+
+- **Nodes**: The worker machines in OpenShift clusters that run application containers.
+- **Pods**: The smallest deployable units in OpenShift, representing a single instance of a running process.
+- **Services**: An abstract way to expose an application running on a set of Pods as a network service.
+- **Deployments**: Ensures the desired number of Pod replicas are running, updating them as necessary.
+
+Additional components are:
+
+- **Routes**: Provide external access to services and their endpoints via hostnames and ports.
+- **Ingress**: External access to services within the cluster through a single IP address.
+- **Network Policies**: Control the communication between Pods and other network entities, providing a way to secure applications.

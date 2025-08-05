@@ -1,0 +1,3 @@
+* xref:understand-the-purpose-and-scope-of-the-test-course.adoc[]
+** xref:identify-key-concepts-and-principles.adoc[]
+** xref:apply-learned-knowledge-through-practical-exercises.adoc[]

@@ -1,0 +1,10 @@
+#  Hands-on Lab: Basic Automation with Ansible
+
+- **Hands-on Lab: Basic Automation with Ansible**
+  - This lab focuses on setting up a simple Ansible environment for practical experience.
+  - Participants will learn to configure and run basic playbooks for automating system tasks.
+  - The hands-on session covers managing files and services using Ansible, providing real-world application of theoretical concepts.
+  - Learners will gain practical skills in deploying configurations, handling tasks like file transfers and package installations.
+  - This lab is designed to reinforce understanding of Ansible playbooks, variables, templates, and roles through direct implementation.
+  - Achieving successful automation in this lab prepares users for more complex scenarios in real-world IT environments.
+  - Overall, it bridges the gap between theory and practice, ensuring learners can effectively apply Ansible for configuration management.
